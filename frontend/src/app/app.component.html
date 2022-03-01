@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="app.component.css">
+  </head>
+
+  <body >
+    <div
+    class="bg-image"
+    style="
+      background-image: url('https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v481-bb-ning-09_1.jpg?w=1200&h=1200&dpr=1&fit=clip&crop=default&fm=jpg&q=75&vib=3&con=3&usm=15&cs=srgb&bg=F4F4F3&ixlib=js-2.2.1&s=d3a3631ed674c441dfdb26e8179bd780');
+      height: 100vh;
+    ">
+      <br>
+      <form class="center" name="editForm" role="form" novalidate (ngSubmit)="sendData()" [formGroup]="editForm">
+        <tr>
+          <th><label for="start">Start date: </label></th>
+          <th><input required type="date" id="start" name="start" formControlName="start"></th>
+          <th><label for="end">End date: </label></th>
+          <th><input required type="date" id="end" name="end" formControlName="end"></th>
+          <th><button class="btn btn-secondary" type="submit">Submit</button></th>
+        </tr>
+        <br>
+        <br>
+        <div>
+          <table class="center">
+            <tr>
+              <th>Brand Name</th>
+              <th>Total Profiles</th> 
+              <th>Total Fans</th>
+              <th>Total Engagement</th>
+            </tr>
+            <tr *ngFor = "let x of response">
+              <td>{{x.brandName}}</td>
+              <td>{{x.totalProfiles}}</td>
+              <td>{{x.totalFans}}</td>
+              <td>{{x.totalEngagement}}</td>
+            </tr>
+          </table>
+        </div> 
+      </form>
+    </div>   
+  </body>
+</html>
